@@ -88,9 +88,9 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--model",    default=None,
                    help=(
                        "Model override. Defaults: "
-                       "openai→gpt-4o-mini, "
-                       "anthropic→claude-sonnet-4-20250514 (also: claude-haiku-4-20250514, claude-opus-4-20250514), "
-                       "google→gemini-2.5-flash (also: gemini-2.5-pro)"
+                       "openai→gpt-5.4 (also: gpt-5-mini, gpt-5.4-pro), "
+                       "anthropic→claude-sonnet-4-6 (also: claude-haiku-4-5-20251001, claude-opus-4-6), "
+                       "google→gemini-3-flash-preview (also: gemini-3.1-pro-preview, gemini-2.5-flash)"
                    ))
     p.add_argument("--embedder", default="google", choices=["openai", "google", "anthropic", "sentence_transformers"])
     p.add_argument("--store",    default=".ragmax_vault_db")
@@ -186,9 +186,9 @@ async def main() -> None:
 
     # LLM
     llm_defaults = {
-        "openai":    "gpt-4o-mini",
-        "anthropic": "claude-sonnet-4-20250514",
-        "google":    "gemini-2.5-flash",
+        "openai":    "gpt-5.4",
+        "anthropic": "claude-sonnet-4-6",
+        "google":    "gemini-3-flash-preview",
     }
     llm_model = args.model or llm_defaults[args.llm]
     llm = create_llm(LLMConfig(provider=args.llm, model=llm_model))

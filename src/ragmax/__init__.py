@@ -16,7 +16,7 @@ Builder API::
     from ragmax import RAGBuilder
 
     rag = (RAGBuilder()
-        .with_llm("anthropic", model="claude-sonnet-4-20250514")
+        .with_llm("anthropic", model="claude-sonnet-4-6")
         .with_embedder("google", model="gemini-embedding-2-preview", dimensions=768)
         .with_store("qdrant", url="localhost:6333")
         .with_chunker("semantic", threshold=0.5)

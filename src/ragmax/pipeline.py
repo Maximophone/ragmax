@@ -251,9 +251,9 @@ class RAGPipeline:
 
 
 _PROVIDER_SHORTCUTS = {
-    "openai": ("openai", "gpt-4o-mini"),
-    "anthropic": ("anthropic", "claude-sonnet-4-20250514"),
-    "google": ("google", "gemini-2.5-flash"),
+    "openai": ("openai", "gpt-5.4"),
+    "anthropic": ("anthropic", "claude-sonnet-4-6"),
+    "google": ("google", "gemini-3-flash-preview"),
 }
 
 _STORE_SHORTCUTS = {
@@ -331,7 +331,7 @@ class RAGBuilder:
     Usage::
 
         rag = (RAGBuilder()
-            .with_llm("anthropic", model="claude-sonnet-4-20250514")
+            .with_llm("anthropic", model="claude-sonnet-4-6")
             .with_embedder("openai", model="text-embedding-3-small", dimensions=512)
             .with_store("qdrant", url="localhost:6333", collection="docs")
             .with_chunker("semantic", threshold=0.5)

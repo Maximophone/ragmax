@@ -12,12 +12,12 @@ from ragmax.core.utils import require_dependency
 class GoogleLLM:
     """Generate text using Google Gemini models.
 
-    Supports Gemini 2.5 Pro, Flash, and other variants.
+    Supports Gemini 3 Flash Preview, 2.5 Pro, and other variants.
     """
 
     def __init__(
         self,
-        model: str = "gemini-2.5-flash",
+        model: str = "gemini-3-flash-preview",
         temperature: float = 0.1,
         max_tokens: int = 2048,
         api_key: str | None = None,
