@@ -83,8 +83,15 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--vault",    required=True, help="Path to Obsidian vault root")
     p.add_argument("--folders",  default="Meetings,Essays,Daily Notes",
                    help="Comma-separated folders to ingest")
-    p.add_argument("--llm",      default="openai", choices=["openai", "anthropic", "google"])
-    p.add_argument("--model",    default=None)
+    p.add_argument("--llm",      default="openai", choices=["openai", "anthropic", "google"],
+                   help="LLM provider (default: openai)")
+    p.add_argument("--model",    default=None,
+                   help=(
+                       "Model override. Defaults: "
+                       "openai→gpt-4o-mini, "
+                       "anthropic→claude-sonnet-4-20250514 (also: claude-haiku-4-20250514, claude-opus-4-20250514), "
+                       "google→gemini-2.5-flash (also: gemini-2.5-pro)"
+                   ))
     p.add_argument("--embedder", default="google", choices=["openai", "google", "anthropic", "sentence_transformers"])
     p.add_argument("--store",    default=".ragmax_vault_db")
     p.add_argument("--top-k",   default=8, type=int)
