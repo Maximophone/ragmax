@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ragmax"
+version = "0.1.0"
+description = "State-of-the-art RAG library: modular, async-first, production-grade."
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+    "pydantic>=2.0",
+    "numpy>=1.26",
+    "tiktoken>=0.7",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+anthropic = ["anthropic>=0.40"]
+google = ["google-genai>=1.0"]
+qdrant = ["qdrant-client>=1.7"]
+chroma = ["chromadb>=0.5"]
+rerankers = ["sentence-transformers>=3.0"]
+cohere = ["cohere>=5.0"]
+parsers = ["pdfplumber>=0.11", "python-docx>=1.0", "beautifulsoup4>=4.12"]
+spacy = ["spacy>=3.7"]
+bm25 = ["rank-bm25>=0.2"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.24", "ruff>=0.8"]
+all = [
+    "ragmax[openai,anthropic,google,qdrant,chroma,rerankers,cohere,parsers,spacy,bm25,dev]",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ragmax"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
