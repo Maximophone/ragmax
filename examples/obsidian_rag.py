@@ -85,7 +85,7 @@ def parse_args() -> argparse.Namespace:
                    help="Comma-separated folders to ingest")
     p.add_argument("--llm",      default="openai", choices=["openai", "anthropic", "google"])
     p.add_argument("--model",    default=None)
-    p.add_argument("--embedder", default="openai", choices=["openai", "google", "anthropic", "sentence_transformers"])
+    p.add_argument("--embedder", default="google", choices=["openai", "google", "anthropic", "sentence_transformers"])
     p.add_argument("--store",    default=".ragmax_vault_db")
     p.add_argument("--top-k",   default=8, type=int)
     p.add_argument("--rerank",  action="store_true")
